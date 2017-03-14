@@ -6,7 +6,7 @@
     '<div ng-transclude></div>' +
     '<div class="context-menu">' +
     '  <div class="context-menu-item" ng-repeat="item in items"' + 
-    '    ng-class="{ separator: item.separator, disabled: item.disabled, submenu: item.submenu && item.submenu.length}" ng-click="callback(item)">' +
+    '    ng-class="{ \'separator-context-menu\': item.separator, \'disabled-context-menu-item\': item.disabled, submenu: item.submenu && item.submenu.length}" ng-click="callback(item)">' +
     
     '    <div ng-if="!item.separator" class="context-menu" ng-include="\'menu.html\'"></div>' +
     '      {{ item.name }}' + 
@@ -15,7 +15,7 @@
     '</div>' +  
     '<script type="text/ng-template" id="menu.html">' +
     '  <div class="context-menu-item" ng-repeat="item in item.submenu"' +
-    '    ng-class="{ separator: item.separator, disabled: item.disabled, submenu: item.submenu && item.submenu.length}" ng-click="callback(item)">' +
+    '    ng-class="{ \'separator-context-menu\': item.separator, \'disabled-context-menu-item\': item.disabled, submenu: item.submenu && item.submenu.length}" ng-click="callback(item)">' +
     '    <div ng-if="!item.separator" class="context-menu" ng-include="\'menu.html\'"></div>' +
     '      {{ item.name }}' + 
     '    </div>' +
@@ -154,9 +154,6 @@
  *  },
  * ]
  *
- * #TODO: 
- *
- * - setup git repository,
  *
  */
 

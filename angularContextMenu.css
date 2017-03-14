@@ -35,16 +35,16 @@
   float: right;
 }
 
-.disabled {
+.disabled-context-menu-item {
   color: #bbbbbb;
 }
 
-.disabled:hover {
+.disabled-context-menu-item:hover {
   background-color: #ffffff; 
   cursor: default;
 }
 
-.separator {
+.separator-context-menu {
   margin: 10px;
   border-top: 1px solid #eeeeee;
   padding: 0;
