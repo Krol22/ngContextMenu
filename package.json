@@ -1,0 +1,18 @@
+{
+  "name": "angular-context-menu",
+  "version": "1.0.0",
+  "description": "Angular component containing context menu for web application.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "angular",
+    "context",
+    "menu",
+    "component",
+    "contextMenu"
+  ],
+  "author": "Karol Toruń <krol22ee@gmail.com>",
+  "license": "ISC"
+}
