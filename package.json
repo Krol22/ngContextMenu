@@ -1,6 +1,6 @@
 {
   "name": "angular-context-menu",
-  "version": "1.0.0",
+  "version": "0.1",
   "description": "Angular component containing context menu for web application.",
   "main": "index.js",
   "scripts": {
@@ -14,5 +14,10 @@
     "contextMenu"
   ],
   "author": "Karol Toruń <krol22ee@gmail.com>",
+  "homepage": "https://github.com/krol22/ngContextMenu",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krol22/ngContextMenu.git"
+  },
   "license": "ISC"
 }
