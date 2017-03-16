@@ -24,7 +24,6 @@
 
   this.contextMenuController = function(scope, elem, attr){
     var randomId = Math.random().toString(36).substring(7);
-    console.log(randomId);
 
     elem.addClass("context-menu-trigger" + randomId);
     elem.ready(function(){
@@ -58,8 +57,6 @@
 
     var contextMenu = $('.context-menu-trigger' + randomId + ' > .context-menu');
 
-    console.log('.context-menu-trigger' + randomId);
-    
     $('.context-menu-trigger' + randomId).contextmenu(function(e){
       e.preventDefault(); 
 
