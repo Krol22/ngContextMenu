@@ -57,4 +57,6 @@ var item = { name: "Menu option!", callback: callback },
 
 ## Things that will still be added: 
 - support for icons for each menu item,
-- change name of ngContextMenu for angularContextMenu
+- change name of ngContextMenu for angularContextMenu,
+- gifs with look of application,
+- demo applications with added script and css in html file and with use of modules
