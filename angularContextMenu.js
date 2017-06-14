@@ -2,22 +2,25 @@
 
   var contextMenu, contextMenuController, templateString;
 
-  this.templateString = 
+  this.templateString =
     '<div ng-transclude></div>' +
     '<div class="context-menu">' +
-    '  <div class="context-menu-item" ng-repeat="item in items"' + 
+    '  <div class="context-menu-item" ng-repeat="item in items"' +
     '    ng-class="{ \'separator-context-menu\': item.separator, \'disabled-context-menu-item\': item.disabled, submenu: item.submenu && item.submenu.length}" ng-click="callback(item)">' +
-    
     '    <div ng-if="!item.separator" class="context-menu" ng-include="\'menu.html\'"></div>' +
-    '      {{ item.name }}' + 
+    '      <div ng-if="!item.separator" class="context-menu-icon"><i ng-if="item.icon" class="fa {{item.icon}} aria-hidden="true"></i></div>' +
+    '        {{ item.name }}' +
+    '      <div ng-if="item.submenu" class="context-menu-arrow"><i class="fa fa-caret-right"></i></div> ' +
     '    </div>' +
-    '  </div>' +  
-    '</div>' +  
+    '  </div>' +
+    '</div>' +
     '<script type="text/ng-template" id="menu.html">' +
     '  <div class="context-menu-item" ng-repeat="item in item.submenu"' +
     '    ng-class="{ \'separator-context-menu\': item.separator, \'disabled-context-menu-item\': item.disabled, submenu: item.submenu && item.submenu.length}" ng-click="callback(item)">' +
     '    <div ng-if="!item.separator" class="context-menu" ng-include="\'menu.html\'"></div>' +
-    '      {{ item.name }}' + 
+    '      <div ng-if="!item.separator" class="context-menu-icon"><i ng-if="item.icon" class="fa {{item.icon}} aria-hidden="true"></i></div>' +
+    '        {{ item.name }}' +
+    '      <div ng-if="item.submenu" class="context-menu-arrow"><i class="fa fa-caret-right"></i></div> ' +
     '    </div>' +
     '  </div>' +
     '</script>';
@@ -31,14 +34,14 @@
     });
 
     scope.callback = function(item){
-      if(item.separator || (item.submenu && item.submenu.length)){
-        return; 
+      if(item.separator || (item.submenu && item.submenu.length) || !item.callback){
+        return;
       }
       item.callback();
     };
   };
 
-  this.contextMenu = function(){ 
+  this.contextMenu = function(){
     return {
       scope: {
         items: '=ngContextMenu'
@@ -58,42 +61,42 @@
     var contextMenu = $('.context-menu-trigger' + randomId + ' > .context-menu');
 
     $('.context-menu-trigger' + randomId).contextmenu(function(e){
-      e.preventDefault(); 
+      e.preventDefault();
 
       contextMenu.css('display', 'block');
-      
+
       var menuWidth = contextMenu.outerWidth();
       var menuXPosition = contextMenu.offset().left;
-      
+
       if(e.pageX + menuWidth < documentWidth){
         contextMenu.css('left', e.pageX + 'px');
       } else {
         var newXPosition = documentWidth - menuWidth;
         contextMenu.css('left', newXPosition + 'px');
       }
-      
+
       var mouseYPosition = e.pageY;
       var menuHeight = contextMenu.outerHeight();
-      
+
       if(mouseYPosition + menuHeight < documentHeight){
         contextMenu.css('top', e.pageY + 10 + 'px');
       } else {
         var newYPosition = documentHeight - menuHeight;
         contextMenu.css('top', newYPosition + 'px');
       }
-    }); 
-    
+    });
+
     $(document).click(function(e){
       if(!$(e.target).is('.disabled')){
         direction = 0;
-        contextMenu.css('display', 'none'); 
+        contextMenu.css('display', 'none');
       }
     });
-    
+
     $(window).resize(function(e){
-      documentWidth = $(document).width(); 
-      documentHeight = $(document).height(); 
-      contextMenu.css('display', 'none'); 
+      documentWidth = $(document).width();
+      documentHeight = $(document).height();
+      contextMenu.css('display', 'none');
     });
 
 
@@ -103,40 +106,41 @@
       var hoveredMenuItemWidth = hoveredMenuItem.outerWidth();
       var subMenuWidth = $(e.target).children().width();
       var hoveredMenuItemXPosition = hoveredMenuItem.offset().left;
-      
+
       if ($(e.target).children().html() === currentVisibleSubmenu.html()) {
         direction = 0;
         if(subMenuWidth + hoveredMenuItemWidth + hoveredMenuItemXPosition > documentWidth){
           direction = 1;
-        } 
+        }
       }
-      
+
       if(!direction){
         currentVisibleSubmenu.css('left', hoveredMenuItemWidth + 'px');
       } else {
         currentVisibleSubmenu.css('left', "-" + subMenuWidth + 'px');
       }
-      
+
       var hoveredMenuItemYPosition = hoveredMenuItem.position().top;
       currentVisibleSubmenu.css('top', hoveredMenuItemYPosition + 'px');
     }, function(e){
     });
-  }  
+  }
 
   angular.module('ngContextMenu', [])
   .directive('ngContextMenu', this.contextMenu);
-  
+
 })();
 
 
 /* Example item array with submenu, disabled menu-item, separators
  *
  * [
- *  { 
+ *  {
  *    name: 'item 1',
  *    submenu: [
  *      {
  *        name: 'item 1.1',
+ *        icon: 'address-book',
  *        disabled: true,
  *      },
  *      {
@@ -153,5 +157,3 @@
  *
  *
  */
-
-

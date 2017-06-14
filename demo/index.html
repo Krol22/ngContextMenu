@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Test</title>
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <link rel="stylesheet" type="text/css" href="../angularContextMenu.css"/>
+    </head>
+    <body ng-app="contextMenuDemo">
+        <div ng-controller="demoController">
+            <button ng-context-menu="items">Right click to open context menu.</button>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="../angularContextMenu.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>

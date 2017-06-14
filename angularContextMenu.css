@@ -7,19 +7,20 @@
 }
 
 .context-menu-item {
-  padding: 10px 20px;
-  min-width: 100px;
+  padding: 10px 20px 10px 10px;
+  min-width: 120px;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  white-space: nowrap;
 }
 
 .context-menu-item:hover {
   cursor: pointer;
-  background-color: #eeeeee; 
+  background-color: #eeeeee;
 }
 
 .context-menu-item.submenu:hover > .context-menu {
@@ -27,12 +28,17 @@
   position: absolute;
 }
 
-.menu-icon {
-  float: left;
+.context-menu-icon {
+    display: inline-block;
+    padding-right: 15px;
+    width: 7px;
 }
 
-.submenu-arrow {
-  float: right;
+.context-menu-arrow {
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    padding-right: 10px;
 }
 
 .disabled-context-menu-item {
@@ -40,7 +46,7 @@
 }
 
 .disabled-context-menu-item:hover {
-  background-color: #ffffff; 
+  background-color: #ffffff;
   cursor: default;
 }
 
@@ -51,4 +57,3 @@
   cursor: default;
   background-color: #eeeeee;
 }
-
