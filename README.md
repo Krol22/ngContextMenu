@@ -8,7 +8,9 @@ npm install angular-context-menu
 
 ```
 
-And then you can use it with adding script and css file to your html page.
+Dependencies: JQuery 3.2, Angular 1.6 and font awesome css.
+
+It can be used by adding script and css file to your html page.
 
 ## Basic configuration
 
@@ -20,7 +22,7 @@ angular.module('application', ['ngContextMenu']);
 
 ```
 
-And then you can use it in your html file like this:
+And then you can use it in your html file:
 
 ```html
 
@@ -40,11 +42,19 @@ var item = { name: "Menu option!", callback: callback },
     itemWithSubmenu = {
       name: "Submenu",
       submenu: [
-        // those items can have nested submenus also!
         {
           name: "Sub option 1",
+          icon: "fa-address",
         },{
           name: "Sub option 2",
+          submenu: [
+              {
+                  name: "Sub option 2.1",
+              },
+              {
+                  name: "Sub option 2.2"
+              }
+          ]
         },{
           name: "Sub option 3",
         },
@@ -53,3 +63,5 @@ var item = { name: "Menu option!", callback: callback },
 
 $scope.arrayOfItems = [ item, disabledItem, sseparatorItem, itemWithSubmenu ];
 ```
+
+### [Demo page](https://krol22.github.io/ngContextMenu/docs/index.html)
