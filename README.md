@@ -64,4 +64,4 @@ var item = { name: "Menu option!", callback: callback },
 $scope.arrayOfItems = [ item, disabledItem, sseparatorItem, itemWithSubmenu ];
 ```
 
-### [Demo page](https://krol22.github.io/ngContextMenu/docs/index.html)
+### [Demo page](https://krol22.github.io/ngContextMenu/)

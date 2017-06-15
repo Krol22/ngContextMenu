@@ -2,15 +2,32 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+        <meta name="description" content="Angular component - context menu">
+        <meta name="author" content="Krol22">
         <title>ngContextMenu</title>
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
         <link rel="stylesheet" type="text/css" href="angularContextMenu.css"/>
+        <link rel="stylesheet" type="text/css" href="demo/style.css"/>
     </head>
     <body ng-app="contextMenuDemo">
-        <div ng-controller="demoController">
-            <button ng-context-menu="items">Right click to open context menu.</button>
-        </div>
+        <section class="container" ng-controller="demoController">
+            <div class="jumbotron">
+                <h1> NgContextMenu </h1>
+                <p>
+                    Angular context menu component - demo.
+                </p>
+                <p>
+                    <pre ng-context-menu="items">Right click to open context menu.</pre>
+                </p>
+                <p>
+                    <a class="btn btn-primary" href="https://github.com/krol22/ngContextMenu">Github</a>
+                </p>
+            </div>
+        </section>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
         <script src="angularContextMenu.js"></script>
         <script src="demo/main.js"></script>
