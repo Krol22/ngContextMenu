@@ -2,7 +2,7 @@ angular.module('contextMenuDemo', ['ngContextMenu'])
     .controller('demoController', function ($scope){
 
         var callback = function(){ };
-        var item = { name: "Menu option! 1", callback: callback },
+        var item = { name: "Menu option ", icon: "fa-bolt", callback: callback },
             disabledItem = { name: "Disabled option :(", disabled: true },
             separatorItem = { separator: true },
             itemWithSubmenu = {
